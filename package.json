@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/kevinJ204/VDIOBackendTeste#readme",
   "dependencies": {
+    "express": "^4.18.3",
     "mysql2": "^3.9.2"
   }
 }
