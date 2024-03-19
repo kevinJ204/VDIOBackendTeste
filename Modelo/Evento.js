@@ -15,10 +15,10 @@ export default class Evento {
         this.#id = id;
         this.#nome = nome;
         this.#descricao = descricao;
-        this.#dia = dia;
+        this.#dia = new Date(dia);
         this.#local = local;
-        this.#horarioInicio = horarioInicio;
-        this.#horarioFinal = horarioFinal;
+        this.#horarioInicio = new Date(horarioInicio);
+        this.#horarioFinal = new Date(horarioFinal);
         this.#valorIngresso = valorIngresso;
         this.#ingressosTotais = IngressosTotais;
     }
@@ -107,10 +107,10 @@ export default class Evento {
             "id": this.#id,
             "nome": this.#nome,
             "descricao": this.#descricao,
-            "dia": this.#dia,
+            "dia": this.#dia.toLocaleDateString(),
             "local": this.#local,
-            "horarioInicio": this.#horarioInicio,
-            "horarioFinal": this.#horarioFinal,
+            "horarioInicio": this.#horarioInicio.toTimeString(),
+            "horarioFinal": this.#horarioFinal.toTimeString(),
             "valorIngresso": this.#valorIngresso,
             "IngressosTotais": this.#ingressosTotais
         }

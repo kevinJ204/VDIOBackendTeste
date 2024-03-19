@@ -1,4 +1,4 @@
-import Evento from "../Modelo/Evento";
+import Evento from "../Modelo/Evento.js";
 
 export default class EventoCtrl{
 
@@ -24,7 +24,7 @@ export default class EventoCtrl{
                     resposta.json({
                         "status":true,
                         "mensagem": "Evento gravado com sucesso!",
-                        "codigo_evento": evento.id
+                        "id_evento": evento.id
                     });
                 }).catch((erro) =>{
                     resposta.status(500);
@@ -103,9 +103,9 @@ export default class EventoCtrl{
     excluir(requisicao, resposta){
         resposta.type('application/json');
         if (requisicao.method === "DELETE"){
-            const codigo = requisicao.params.codigo;
-            if (codigo && codigo > 0){
-                const evento = new Evento(codigo);
+            const id = requisicao.params.id;
+            if (id && id > 0){
+                const evento = new Evento(id);
                 evento.excluir()
                 .then(()=>{
                     resposta.status(200);
@@ -126,7 +126,7 @@ export default class EventoCtrl{
                 resposta.status(400);
                 resposta.json({
                     "status":false,
-                    "mensagem": "Por favor, informe o código do evento que deseja excluir, conforme documentação da API"
+                    "mensagem": "Por favor, informe o id do evento que deseja excluir, conforme documentação da API"
                 })
             }
         }

@@ -1,5 +1,5 @@
 import express from "express";
-import rotaEvento from "./Rotas/rotaEvento";
+import rotaEvento from "./Rotas/rotaEvento.js";
 
 const host = '0.0.0.0'; 
 const porta = 3000;
